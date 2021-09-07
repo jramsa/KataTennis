@@ -14,10 +14,16 @@ public class Main {
         
         TennisSet set = new TennisSet();
         
-        while(!set.isPlayerOneWinSet() && !set.isPlayerTwoWinSet()){
+        while(true){
             
             //game 
             TennisGame game = new TennisGame();
+            
+            if(set.isPlayerOneWinSet() || set.isPlayerTwoWinSet()){
+                System.out.println(set.getSetScores(game));//Player One 
+                break;
+            }
+            
             game.increasePlayerTwoScore();
             System.out.println(set.getSetScores(game));//0-15
             game.increasePlayerOneScore();
